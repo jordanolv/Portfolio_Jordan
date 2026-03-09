@@ -4,42 +4,7 @@ $base: 0.6rem;
   height: 100vh;
 }
 
-.hero::before {
-  // position: absolute;
-  // content: "";
-  // z-index: -1;
-  // top: 0;
-  // width: 150%;
-  // opacity: .6;
-  // height: 100%;
-  // background: url("@/assets/static/img/noise.webp") repeat,
-  //   linear-gradient(83.21deg, $main_color 0%, #6888ff 100%);
-  // background-blend-mode: overlay;
-  // -webkit-mask-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent 70%);
-  // mask-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent 70%);
 
-  content: "";
-  position: absolute;
-  opacity: 0.3;
-  background-blend-mode: overlay;
-  top: calc(50% - 20px);
-  box-shadow: 0 0 1920px 254px #7289da;
-  background: url("@/assets/static/img/noise.webp") repeat;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  opacity: 0.3;
-  width: 100%;
-  // z-index: -1;
-  pointer-events: none;
-  height: 100%;
-  background-blend-mode: overlay;
-  background: url("@/assets/static/img/noise.webp") repeat;
-  -webkit-mask-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent 70%);
-  mask-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent 70%);
-}
 
 .hero__header {
   position: absolute;

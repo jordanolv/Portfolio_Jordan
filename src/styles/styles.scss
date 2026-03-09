@@ -22,12 +22,27 @@ body {
   background-blend-mode: color-dodge;
   counter-reset: section 1;
   background-repeat: repeat;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50vw) var(--mouse-y, 50vh),
+    rgba(114, 137, 218, 0.12),
+    transparent 80%
+  );
 }
 
 
 html {
   scroll-behavior: smooth;
 }
+
 
 p {
   font-weight: 200;
