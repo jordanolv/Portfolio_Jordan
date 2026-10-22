@@ -208,6 +208,8 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKey));
   transition: background-color 0.25s;
   user-select: none;
   -webkit-user-select: none;
+  /* Désactive le zoom au double tap quand on enchaîne les taps (le pinch reste possible) */
+  touch-action: manipulation;
 }
 
 .theme-dark {
