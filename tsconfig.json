@@ -9,9 +9,11 @@
     "ignoreDeprecations": "5.0",
     "noImplicitAny": false,
     "allowJs": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "baseUrl": ".",
     "paths": {
       "@/*": [
-        "./*"
+        "./src/*"
       ]
     }
   },
