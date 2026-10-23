@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<title>CV — Jordan Olivier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@700;900&display=swap" rel="stylesheet" />
+<style>
+  /* Mêmes tokens que le site (src/styles/main.css) */
+  :root {
+    --ink: #0a0a0a;
+    --paper: #ffffff;
+    --muted: #555555;
+    --soft: #f2f2f2;
+    --accent: #e4ff3d;
+    --font-display: "Unbounded", system-ui, sans-serif;
+    --font-body: "Hanken Grotesk", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+
+  @page { size: A4; margin: 0; }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 9.2pt;
+    line-height: 1.38;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  h1, h2, h3, p, ul { margin: 0; }
+  ul { padding: 0; list-style: none; }
+  a { color: inherit; text-decoration: none; }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hl {
+    background: var(--accent);
+    padding: 0 0.08em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  .mono {
+    font-family: var(--font-mono);
+    font-size: 7.6pt;
+    letter-spacing: 0.04em;
+  }
+
+  .display {
+    font-family: var(--font-display);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.045em;
+    line-height: 0.92;
+  }
+
+  /* ---------- En-tête ---------- */
+  .head {
+    display: grid;
+    grid-template-columns: 1fr 44mm;
+    gap: 9mm;
+    padding: 11mm 14mm 7mm;
+  }
+
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    text-transform: uppercase;
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--ink);
+    box-shadow: 0 0 0 3px var(--accent);
+  }
+
+  .name {
+    margin-top: 4mm;
+    font-size: 40pt;
+  }
+
+  .role {
+    margin-top: 3.5mm;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 12pt;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+
+  .intro {
+    margin-top: 3mm;
+    max-width: 118mm;
+    font-size: 9.8pt;
+    line-height: 1.42;
+  }
+
+  .contact {
+    margin-top: 4mm;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6mm;
+  }
+
+  .contact a,
+  .contact span {
+    display: inline-flex;
+    align-items: center;
+    padding: 1.1mm 2.8mm;
+    border: 1.5px solid var(--ink);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 7.2pt;
+  }
+
+  .contact .main {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .portrait {
+    position: relative;
+    align-self: start;
+  }
+
+  .portrait img {
+    display: block;
+    width: 44mm;
+    height: 54mm;
+    object-fit: cover;
+    object-position: center 30%;
+    border-radius: 12px;
+    filter: grayscale(1) contrast(1.05);
+  }
+
+  .sticker {
+    position: absolute;
+    left: -9mm;
+    bottom: -7mm;
+    width: 23mm;
+    height: 23mm;
+    transform: rotate(-14deg);
+  }
+
+  .sticker text {
+    font-family: var(--font-mono);
+  }
+
+  /* ---------- Bande stack ---------- */
+  .band {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 2.6mm 14mm;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1mm 2.4mm;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
+
+  .band .sep {
+    color: var(--accent);
+  }
+
+  /* ---------- Corps ---------- */
+  .body {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 62mm;
+    gap: 9mm;
+    padding: 6.5mm 14mm 0;
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    gap: 5mm;
+  }
+
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 2.5mm;
+    padding-bottom: 1.8mm;
+    margin-bottom: 2.6mm;
+    border-bottom: 2px solid var(--ink);
+    font-size: 11.5pt;
+  }
+
+  .section-title .num {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 7.6pt;
+    letter-spacing: 0.04em;
+  }
+
+  .item + .item {
+    margin-top: 2.6mm;
+  }
+
+  .item-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 3mm;
+  }
+
+  .item h3 {
+    font-size: 10.6pt;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .item .period {
+    flex: none;
+    text-transform: uppercase;
+  }
+
+  .item .place {
+    margin-top: 0.4mm;
+    color: var(--muted);
+  }
+
+  .item p {
+    margin-top: 1mm;
+  }
+
+  .bullets {
+    margin-top: 1.4mm;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9mm;
+  }
+
+  .bullets li {
+    position: relative;
+    padding-left: 4mm;
+  }
+
+  .bullets li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 2mm;
+    height: 2px;
+    background: var(--ink);
+  }
+
+  /* Projets */
+  .projects {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.2mm;
+  }
+
+  .project {
+    padding: 2.6mm 3.2mm;
+    border: 1.5px solid var(--ink);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1mm;
+  }
+
+  .project--accent {
+    background: var(--accent);
+  }
+
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 2mm;
+  }
+
+  .project h3 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 9.6pt;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+  }
+
+  .project .kind {
+    text-transform: uppercase;
+    font-size: 6.6pt;
+  }
+
+  .project p {
+    font-size: 8.5pt;
+    line-height: 1.32;
+  }
+
+  .tags {
+    margin-top: auto;
+    padding-top: 1mm;
+    color: var(--muted);
+    font-size: 6.8pt;
+  }
+
+  .project--accent .tags {
+    color: var(--ink);
+  }
+
+  /* Avant le dev */
+  .before li {
+    display: grid;
+    grid-template-columns: 22mm 1fr;
+    gap: 3mm;
+    padding: 1mm 0;
+    border-bottom: 1px solid #dcdcdc;
+  }
+
+  .before li:last-child {
+    border-bottom: 0;
+  }
+
+  .before .what span {
+    color: var(--muted);
+  }
+
+  /* Colonne droite */
+  .formation .item h3 {
+    font-size: 9.8pt;
+  }
+
+  .formation .item-head {
+    flex-direction: column;
+    gap: 0.4mm;
+  }
+
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.4mm;
+  }
+
+  .skills li {
+    padding: 0.8mm 2.4mm;
+    border: 1.5px solid var(--ink);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 7.2pt;
+  }
+
+  .skills li.strong {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .kv li {
+    display: flex;
+    justify-content: space-between;
+    gap: 3mm;
+    padding: 1mm 0;
+    border-bottom: 1px solid #dcdcdc;
+  }
+
+  .kv li:last-child {
+    border-bottom: 0;
+  }
+
+  .kv .k {
+    text-transform: uppercase;
+  }
+
+  .kv .v {
+    font-weight: 600;
+    text-align: right;
+  }
+
+  /* ---------- Pied ---------- */
+  .foot {
+    margin-top: 5mm;
+    background: var(--accent);
+    padding: 3.6mm 14mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6mm;
+  }
+
+  .foot .display {
+    font-size: 15pt;
+  }
+
+  .foot .links {
+    display: flex;
+    gap: 4mm;
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="head">
+    <div>
+      <span class="mono status"><span class="dot"></span>Recherche un CDI · ouvert à d'autres opportunités</span>
+      <h1 class="display name">Jordan<br /><span class="hl">Olivier</span></h1>
+      <p class="role">Développeur Full Stack</p>
+      <p class="intro">
+        Diplômé d'un <strong>Mastère Expert en développement full-stack</strong> (Bac+5) après 3 ans d'alternance chez
+        Wisebuilding, je conçois et développe des applications web de bout en bout&nbsp;: du back-end à l'interface.
+      </p>
+      <div class="contact">
+        <a class="main" href="mailto:jordanolv.pro@gmail.com">jordanolv.pro@gmail.com</a>
+        <a href="tel:+33760302196">07 60 30 21 96</a>
+        <a href="https://jordanolivier.dev">jordanolivier.dev</a>
+        <a href="https://www.linkedin.com/in/jordanolv">in/jordanolv</a>
+        <a href="https://github.com/jordanolv">github.com/jordanolv</a>
+        <span>Beauvais · Paris · Remote</span>
+      </div>
+    </div>
+
+    <div class="portrait">
+      <img src="../src/assets/static/img/jordan.jpg" alt="Portrait de Jordan Olivier" />
+      <svg class="sticker" viewBox="0 0 124 124" aria-hidden="true">
+        <defs>
+          <path id="ring" d="M62,62 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0" />
+        </defs>
+        <circle cx="62" cy="62" r="61" fill="#0a0a0a" />
+        <circle cx="62" cy="62" r="20" fill="#e4ff3d" />
+        <text fill="#fff" font-size="10.4" letter-spacing="1.6">
+          <textPath href="#ring">OUVERT AUX OPPORTUNITÉS · 2026 ·</textPath>
+        </text>
+      </svg>
+    </div>
+  </header>
+
+  <div class="band">
+    <span>Vue</span><span class="sep">/</span>
+    <span>Nuxt</span><span class="sep">/</span>
+    <span>TypeScript</span><span class="sep">/</span>
+    <span>Node.js</span><span class="sep">/</span>
+    <span>NestJS</span><span class="sep">/</span>
+    <span>Symfony</span><span class="sep">/</span>
+    <span>PHP</span><span class="sep">/</span>
+    <span>PostgreSQL</span><span class="sep">/</span>
+    <span>MongoDB</span><span class="sep">/</span>
+    <span>Docker</span>
+  </div>
+
+  <div class="body">
+    <div class="col">
+      <section>
+        <h2 class="display section-title"><span class="num">01</span>Expérience</h2>
+        <div class="item">
+          <div class="item-head">
+            <h3>Analyste / Développeur Full Stack</h3>
+            <span class="mono period">Sept. 2023 — Sept. 2026</span>
+          </div>
+          <p class="mono place">Wisebuilding · Alternance · 3 ans</p>
+          <ul class="bullets">
+            <li>Maintenance et évolutions de l'application historique.</li>
+            <li>Participation au développement de la nouvelle stack.</li>
+            <li>Évolution de <strong>Smartnance</strong>, une GMAO (Symfony / PHP).</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="display section-title"><span class="num">02</span>Projets</h2>
+        <div class="projects">
+          <article class="project project--accent">
+            <div class="project-head"><h3>NookApp</h3><span class="mono kind">Bureau virtuel</span></div>
+            <p>Bureau virtuel en pixel-art 2D, avec chat vocal de proximité.</p>
+            <p class="mono tags">NestJS · Nuxt 3 · PostgreSQL · Socket.IO · Phaser · LiveKit</p>
+          </article>
+          <article class="project">
+            <div class="project-head"><h3>The Ridge</h3><span class="mono kind">Bot Discord</span></div>
+            <p>Bot Discord modulaire, déployé en continu sur VPS.</p>
+            <p class="mono tags">TypeScript · discord.js · MongoDB · Express · Docker</p>
+          </article>
+          <article class="project">
+            <div class="project-head"><h3>7Trip</h3><span class="mono kind">Appli mobile · bientôt</span></div>
+            <p>Application mobile pour organiser tout son voyage au même endroit.</p>
+            <p class="mono tags">React Native · Expo · NestJS · Prisma</p>
+          </article>
+          <article class="project">
+            <div class="project-head"><h3>dylanolivier.fr</h3><span class="mono kind">Client</span></div>
+            <p>Site sur mesure : portfolio, boutique en ligne et back-office.</p>
+            <p class="mono tags">TypeScript · Node.js</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="display section-title"><span class="num">03</span>Avant le dev</h2>
+        <ul class="before">
+          <li><span class="mono">2020 — 2021</span><span class="what"><strong>Service civique</strong> <span>· maintenance informatique · ASP, Nouvelle-Calédonie</span></span></li>
+          <li><span class="mono">2020</span><span class="what"><strong>Hôte de caisse</strong> <span>· Carrefour Market</span></span></li>
+          <li><span class="mono">2018 — 2019</span><span class="what"><strong>Préparateur de commandes</strong> <span>· NED95</span></span></li>
+          <li><span class="mono">2015 — 2018</span><span class="what"><strong>Monteur-câbleur</strong> <span>· Corvo Technology</span></span></li>
+        </ul>
+      </section>
+    </div>
+
+    <aside class="col">
+      <section class="formation">
+        <h2 class="display section-title"><span class="num">04</span>Formation</h2>
+        <div class="item">
+          <div class="item-head">
+            <span class="mono period">2024 — 2026</span>
+            <h3>Mastère Expert en développement <span class="hl" style="white-space: nowrap;">full-stack</span></h3>
+          </div>
+          <p class="mono place">Ynov Campus Lyon · Bac+5</p>
+        </div>
+        <div class="item">
+          <div class="item-head">
+            <span class="mono period">2023 — 2024</span>
+            <h3>Bachelor 3 Informatique</h3>
+          </div>
+          <p class="mono place">Ynov Campus Lyon · alternance</p>
+        </div>
+        <div class="item">
+          <div class="item-head">
+            <span class="mono period">2022 — 2023</span>
+            <h3>Développeur Web / Web Mobile</h3>
+          </div>
+          <p class="mono place">CCI de Lyon</p>
+        </div>
+        <div class="item">
+          <div class="item-head">
+            <span class="mono period">2022</span>
+            <h3>Bases de l'informatique</h3>
+          </div>
+          <p class="mono place">IFPA Formation · 4 mois</p>
+        </div>
+        <div class="item">
+          <div class="item-head">
+            <span class="mono period">2013 — 2015</span>
+            <h3>Bac Pro SEN</h3>
+          </div>
+          <p class="mono place">Lycée Lavoisier</p>
+        </div>
+      </section>
+
+
+      <section>
+        <h2 class="display section-title"><span class="num">05</span>Infos</h2>
+        <ul class="kv">
+          <li><span class="mono k">Anglais</span><span class="v">B2</span></li>
+          <li><span class="mono k">Permis</span><span class="v">B</span></li>
+          <li><span class="mono k">Autodidacte</span><span class="v">depuis 2020</span></li>
+          <li><span class="mono k">Intérêts</span><span class="v">Informatique · Sport · Montagne</span></li>
+        </ul>
+      </section>
+    </aside>
+  </div>
+
+  <footer class="foot">
+    <span class="display">jordanolivier<span class="hl" style="background: var(--ink); color: var(--accent);">.dev</span></span>
+    <span class="mono links">Projets, captures &amp; contact sur le site&nbsp;→</span>
+  </footer>
+</main>
+</body>
+</html>
