@@ -98,7 +98,7 @@ export const projects: Project[] = [
     description:
       "Transformation d'une boutique Shopify en boutique vitrine à la demande du client, avec un dashboard admin pour gérer l'entièreté du site (design du client).",
     stack: ["Node.js", "Express", "SCSS"],
-    tier: "archive",
+    tier: "list",
     client: "Plaisirs Fondants",
     year: "2022",
     images: [plaisirs1],

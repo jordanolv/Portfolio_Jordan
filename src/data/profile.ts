@@ -33,6 +33,8 @@ export interface Step {
   title: string;
   place?: string;
   text?: string;
+  /** Diplôme obtenu pendant cette étape, mis en avant à part */
+  degree?: { title: string; place: string };
 }
 
 export const parcours: Step[] = [
@@ -40,7 +42,11 @@ export const parcours: Step[] = [
     period: "2023 — 2026",
     title: "Analyste / Développeur Full Stack",
     place: "Wisebuilding · alternance",
-    text: "Maintenance de l'application historique, participation à la nouvelle stack et évolution de Smartnance, une GMAO. Titre Expert en développement logiciel (Bac+5) obtenu avec Ynov Campus Lyon.",
+    text: "Maintenance de l'application historique, participation à la nouvelle stack et évolution de Smartnance, une GMAO.",
+    degree: {
+      title: "Expert en développement logiciel",
+      place: "Ynov Campus Lyon · Bachelor 3 puis Mastère · Bac+5, RNCP niveau 7",
+    },
   },
   {
     period: "2022 — 2023",

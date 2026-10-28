@@ -31,12 +31,12 @@ const isMobile = useMediaQuery("(max-width: 767px)");
 .logo {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: 20px;
+  font-size: 28px;
   letter-spacing: -0.02em;
 }
 
 .logo .hl {
-  padding: 0 3px;
+  padding: 0 4px;
 }
 
 .nav {

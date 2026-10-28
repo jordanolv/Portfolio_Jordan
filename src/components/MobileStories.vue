@@ -162,6 +162,7 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKey));
             <span class="mono">{{ step.period }}</span>
             <strong>{{ step.title }}</strong>
             <span v-if="step.place">{{ step.place }}</span>
+            <span v-if="step.degree" class="degree mono">Diplômé · {{ step.degree.title }}</span>
           </li>
         </ol>
       </section>
@@ -287,7 +288,7 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKey));
 
 .logo {
   font-family: var(--font-display);
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .logo .hl {
@@ -494,6 +495,16 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKey));
   font-family: var(--font-display);
   font-size: 15px;
   letter-spacing: -0.02em;
+}
+
+.steps .degree {
+  margin-top: 6px;
+  align-self: flex-start;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--accent);
+  font-size: 12px;
 }
 
 /* Contact */

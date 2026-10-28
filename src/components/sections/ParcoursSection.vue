@@ -13,6 +13,11 @@ import { parcours } from "@/data/profile";
             <strong class="step-title">{{ step.title }}</strong>
             <span v-if="step.place" class="place">{{ step.place }}</span>
             <p v-if="step.text">{{ step.text }}</p>
+            <div v-if="step.degree" class="degree">
+              <span class="mono label">Diplôme obtenu</span>
+              <strong class="degree-title">{{ step.degree.title }}</strong>
+              <span class="mono degree-place">{{ step.degree.place }}</span>
+            </div>
           </div>
         </li>
       </ol>
@@ -71,6 +76,36 @@ import { parcours } from "@/data/profile";
 
 .place {
   font-weight: 600;
+}
+
+/* Le diplôme se détache de l'alternance dans la même étape */
+.degree {
+  margin-top: 14px;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 20px;
+  border-radius: var(--radius);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.degree .label {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.degree-title {
+  font-family: var(--font-display);
+  font-size: clamp(17px, 1.8vw, 20px);
+  letter-spacing: -0.02em;
+}
+
+.degree-place {
+  font-size: 12px;
+  opacity: 0.8;
 }
 
 @media (max-width: 640px) {
