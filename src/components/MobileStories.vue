@@ -170,7 +170,10 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKey));
         <a :href="`mailto:${profile.email}`" class="btn btn--ink link">M'écrire un mail <span aria-hidden="true">→</span></a>
         <a :href="profile.linkedin" class="btn link" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
         <a :href="profile.github" class="btn link" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
-        <a :href="profile.cv" class="btn link link--accent" target="_blank" rel="noopener">Télécharger le CV <span aria-hidden="true">↓</span></a>
+        <div class="cv-row">
+          <a :href="profile.cv" class="btn link link--accent" target="_blank" rel="noopener">Voir le CV <span aria-hidden="true">↗</span></a>
+          <a :href="profile.cv" class="btn link" download="CV Jordan Olivier.pdf">Télécharger <span aria-hidden="true">↓</span></a>
+        </div>
         <div class="after">
           <button type="button" class="mono text-btn" @click="go(0)">↺ revoir</button>
           <button type="button" class="mono text-btn" @click="emit('full')">voir le site complet →</button>
@@ -180,7 +183,7 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKey));
 
     <div class="bottom">
       <button type="button" class="message" @click="go(stories.length - 1)">Envoyer un message à {{ profile.firstName }}…</button>
-      <a :href="profile.cv" class="cv" aria-label="Télécharger le CV" target="_blank" rel="noopener">
+      <a :href="profile.cv" class="cv" aria-label="Télécharger le CV" download="CV Jordan Olivier.pdf">
         <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
           <polyline points="7 10 12 15 17 10" />
@@ -510,6 +513,16 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKey));
 
 .link--accent {
   background: var(--accent);
+}
+
+.cv-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.cv-row .link {
+  padding-inline: 18px;
 }
 
 .after {

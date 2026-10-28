@@ -12,7 +12,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/jordanolv",
   github: "https://github.com/jordanolv",
   cv: "/cv.pdf",
-  domain: "jordanolivier.dev",
+  domain: "jordanolv.dev",
 };
 
 export const stack = [

@@ -10,7 +10,10 @@ import { profile } from "@/data/profile";
       <RouterLink :to="{ path: '/', hash: '#projets' }">Projets</RouterLink>
       <RouterLink :to="{ path: '/', hash: '#parcours' }">Parcours</RouterLink>
       <RouterLink :to="{ path: '/', hash: '#contact' }">Contact</RouterLink>
-      <a :href="profile.cv" class="cv" target="_blank" rel="noopener">CV ↓</a>
+      <span class="cv-group">
+        <a :href="profile.cv" class="cv" target="_blank" rel="noopener">CV ↗</a>
+        <a :href="profile.cv" class="cv-dl" download="CV Jordan Olivier.pdf" aria-label="Télécharger le CV">↓</a>
+      </span>
     </nav>
   </header>
 </template>
@@ -54,10 +57,22 @@ import { profile } from "@/data/profile";
   background: var(--accent);
 }
 
-.nav .cv {
+.cv-group {
+  display: inline-flex;
   margin-left: 8px;
+}
+
+.nav .cv {
   padding-inline: 20px;
+  border-radius: 999px 0 0 999px;
   background: var(--ink);
   color: var(--paper);
+}
+
+.nav .cv-dl {
+  padding-inline: 14px 16px;
+  border: 2px solid var(--ink);
+  border-left: 0;
+  border-radius: 0 999px 999px 0;
 }
 </style>
