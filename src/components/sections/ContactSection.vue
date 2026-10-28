@@ -32,7 +32,7 @@ import { profile } from "@/data/profile";
 }
 
 .title {
-  font-size: clamp(42px, 8vw, 120px);
+  font-size: clamp(40px, 6.4vw, 96px);
 }
 
 .actions {

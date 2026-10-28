@@ -5,6 +5,7 @@ import { parcours, profile, stack } from "@/data/profile";
 import { featuredProjects, type Project } from "@/data/projects";
 import { useMediaQuery } from "@/composables/useMediaQuery";
 import { storyIndex } from "@/composables/storyIndex";
+import CvMenu from "@/components/CvMenu.vue";
 import OpenSticker from "@/components/OpenSticker.vue";
 import ProjectCover from "@/components/ProjectCover.vue";
 import portrait from "@/assets/static/img/jordan.jpg";
@@ -183,13 +184,13 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKey));
 
     <div class="bottom">
       <button type="button" class="message" @click="go(stories.length - 1)">Envoyer un message à {{ profile.firstName }}…</button>
-      <a :href="profile.cv" class="cv" aria-label="Télécharger le CV" download="CV Jordan Olivier.pdf">
+      <CvMenu class="cv" menu up aria-label="CV : afficher ou télécharger">
         <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
           <polyline points="7 10 12 15 17 10" />
           <line x1="12" y1="15" x2="12" y2="3" />
         </svg>
-      </a>
+      </CvMenu>
     </div>
   </div>
 </template>
@@ -560,7 +561,7 @@ onBeforeUnmount(() => window.removeEventListener("keydown", onKey));
   cursor: pointer;
 }
 
-.cv {
+.bottom :deep(.cv) {
   width: 48px;
   height: 48px;
   flex: none;

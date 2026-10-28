@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
-import { profile } from "@/data/profile";
+import CvMenu from "@/components/CvMenu.vue";
+import { useMediaQuery } from "@/composables/useMediaQuery";
+
+const isMobile = useMediaQuery("(max-width: 767px)");
 </script>
 
 <template>
@@ -10,10 +13,7 @@ import { profile } from "@/data/profile";
       <RouterLink :to="{ path: '/', hash: '#projets' }">Projets</RouterLink>
       <RouterLink :to="{ path: '/', hash: '#parcours' }">Parcours</RouterLink>
       <RouterLink :to="{ path: '/', hash: '#contact' }">Contact</RouterLink>
-      <span class="cv-group">
-        <a :href="profile.cv" class="cv" target="_blank" rel="noopener">CV ↗</a>
-        <a :href="profile.cv" class="cv-dl" download="CV Jordan Olivier.pdf" aria-label="Télécharger le CV">↓</a>
-      </span>
+      <CvMenu class="cv" :menu="isMobile">CV</CvMenu>
     </nav>
   </header>
 </template>
@@ -53,26 +53,22 @@ import { profile } from "@/data/profile";
   border-radius: 999px;
 }
 
-.nav a:not(.cv):hover {
+.nav > a:hover {
   background: var(--accent);
 }
 
-.cv-group {
-  display: inline-flex;
+.nav :deep(.cv) {
   margin-left: 8px;
-}
-
-.nav .cv {
-  padding-inline: 20px;
-  border-radius: 999px 0 0 999px;
+  padding: 12px 24px;
+  border-radius: 999px;
   background: var(--ink);
   color: var(--paper);
+  font: inherit;
+  transition: background-color 0.15s, color 0.15s;
 }
 
-.nav .cv-dl {
-  padding-inline: 14px 16px;
-  border: 2px solid var(--ink);
-  border-left: 0;
-  border-radius: 0 999px 999px 0;
+.nav :deep(.cv:hover) {
+  background: var(--accent);
+  color: var(--ink);
 }
 </style>

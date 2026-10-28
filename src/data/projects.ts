@@ -7,6 +7,17 @@ import guess1 from "@/assets/static/img/guesscolor.png";
 import quiz1 from "@/assets/static/img/quizbg.jpg";
 import quiz2 from "@/assets/static/img/quizbg2.jpg";
 import quiz3 from "@/assets/static/img/quizbg3.jpg";
+import nook1 from "@/assets/static/img/projects/nookapp-1.webp";
+import nook2 from "@/assets/static/img/projects/nookapp-2.webp";
+import ridge1 from "@/assets/static/img/projects/the-ridge-1.webp";
+import ridge2 from "@/assets/static/img/projects/the-ridge-2.webp";
+import trip1 from "@/assets/static/img/projects/7trip-1.webp";
+import trip2 from "@/assets/static/img/projects/7trip-2.webp";
+import dylanHome from "@/assets/static/img/projects/dylanolivier-home.webp";
+import dylanAnimaux from "@/assets/static/img/projects/dylanolivier-animaux.webp";
+import dylanGalerie from "@/assets/static/img/projects/dylanolivier-galerie.webp";
+import dylanBoutique from "@/assets/static/img/projects/dylanolivier-boutique.webp";
+import dylanShooting from "@/assets/static/img/projects/dylanolivier-shooting.webp";
 
 export interface Project {
   id: string;
@@ -33,6 +44,7 @@ export const projects: Project[] = [
     description:
       "Chacun crée son « Nook », invite ses membres, dessine sa carte et retrouve son équipe dans un monde 2D en pixel-art, avec voix de proximité et édition collaborative en temps réel.",
     stack: ["NestJS", "Nuxt 3", "PostgreSQL", "Socket.IO", "Phaser", "LiveKit"],
+    images: [nook1, nook2],
     tier: "featured",
     year: "2026",
     links: [{ label: "GitHub", href: "https://github.com/jordanolv/NookApp" }],
@@ -45,6 +57,7 @@ export const projects: Project[] = [
     description:
       "Bot Discord modulaire pour animer une communauté. Un environnement par branche, déployé automatiquement sur VPS via Dokploy.",
     stack: ["TypeScript", "discord.js", "MongoDB", "Express", "Docker"],
+    images: [ridge1, ridge2],
     tier: "featured",
     year: "2025 — 2026",
     links: [{ label: "GitHub", href: "https://github.com/jordanolv/the-ridge" }],
@@ -55,8 +68,9 @@ export const projects: Project[] = [
     kind: "Application mobile",
     summary: "Tout ton voyage, au même endroit.",
     description:
-      "Application mobile pour préparer, organiser et suivre ses voyages, en solo ou en groupe.",
+      "Application mobile pour préparer, organiser et suivre ses voyages, en solo ou en groupe. Les visuels sont issus des maquettes de la V1.",
     stack: ["React Native", "Expo", "NestJS", "Prisma"],
+    images: [trip1, trip2],
     tier: "featured",
     badge: "Bientôt",
     year: "2026",
@@ -82,32 +96,11 @@ export const projects: Project[] = [
     description:
       "Site réalisé pour mon frère : portfolio, boutique en ligne et back-office pour gérer le contenu.",
     stack: ["TypeScript", "Node.js"],
+    links: [{ label: "Voir le site", href: "https://dylanolivier.fr" }],
+    images: [dylanHome, dylanAnimaux, dylanGalerie, dylanBoutique, dylanShooting],
     tier: "list",
     client: "Dylan Olivier",
     year: "2025 — 2026",
-  },
-  {
-    id: "jj-core",
-    name: "jj-core",
-    kind: "Appli du quotidien",
-    summary: "Budget, abonnements, listes et suivi des animaux.",
-    description:
-      "Application de gestion du quotidien : budget, abonnements, listes partagées et suivi des animaux.",
-    stack: ["Nuxt 4", "Hono", "TypeScript"],
-    tier: "list",
-    year: "2025 — 2026",
-    links: [{ label: "GitHub", href: "https://github.com/jordanolv/jj-core" }],
-  },
-  {
-    id: "click-and-shoot",
-    name: "Click & Shoot",
-    kind: "Projet d'école",
-    summary: "Application web en équipe, Nuxt et API Hono.",
-    description: "Projet d'école réalisé en équipe : application web Nuxt 3 et API Hono + MongoDB.",
-    stack: ["Nuxt 3", "Hono", "MongoDB"],
-    tier: "list",
-    year: "2024",
-    links: [{ label: "GitHub", href: "https://github.com/Click-Shoot/click-and-shoot-frontend" }],
   },
   {
     id: "plaisirs-fondants",

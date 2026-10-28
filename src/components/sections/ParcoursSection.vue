@@ -34,7 +34,7 @@ import { parcours } from "@/data/profile";
 
 .title {
   flex: 1 1 300px;
-  font-size: clamp(38px, 5vw, 64px);
+  font-size: clamp(34px, 4.4vw, 60px);
 }
 
 .steps {

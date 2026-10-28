@@ -53,7 +53,7 @@ const pad = (n: number) => String(n).padStart(2, "0");
 }
 
 .title {
-  font-size: clamp(38px, 5vw, 64px);
+  font-size: clamp(34px, 4.4vw, 60px);
 }
 
 .grid {

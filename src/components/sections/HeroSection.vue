@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { RouterLink } from "vue-router";
 import { profile } from "@/data/profile";
 import OpenSticker from "@/components/OpenSticker.vue";
 import portrait from "@/assets/static/img/jordan.jpg";
@@ -6,41 +7,55 @@ import portrait from "@/assets/static/img/jordan.jpg";
 
 <template>
   <section id="top" class="hero wrap">
-    <p class="status mono">
-      <span class="dot" aria-hidden="true"></span>
-      {{ profile.status }} — {{ profile.location }}
-    </p>
-
-    <h1 class="display name">
-      {{ profile.firstName }}<br />
-      <span class="hl">{{ profile.lastName }}</span>
-    </h1>
-
-    <div class="bottom">
-      <p class="intro">
-        Développeur <strong class="hl">full stack</strong>. {{ profile.intro }}
+    <div class="text">
+      <p class="status mono">
+        <span class="dot" aria-hidden="true"></span>
+        <span>{{ profile.status }} — {{ profile.locationShort }}</span>
       </p>
-      <div class="portrait">
-        <img :src="portrait" :alt="`Portrait de ${profile.firstName} ${profile.lastName}`" width="220" height="260" />
-        <OpenSticker id="sticker-hero" class="sticker" />
+
+      <h1 class="display name">
+        {{ profile.firstName }}<br />
+        <span class="hl">{{ profile.lastName }}</span>
+      </h1>
+
+      <p class="role">Développeur <span class="hl">full stack</span></p>
+      <p class="intro">{{ profile.intro }}</p>
+
+      <div class="actions">
+        <RouterLink :to="{ path: '/', hash: '#projets' }" class="btn btn--ink">Voir mes projets <span aria-hidden="true">→</span></RouterLink>
+        <RouterLink :to="{ path: '/', hash: '#contact' }" class="btn">Me contacter</RouterLink>
       </div>
+    </div>
+
+    <div class="portrait">
+      <img :src="portrait" :alt="`Portrait de ${profile.firstName} ${profile.lastName}`" width="300" height="360" />
+      <OpenSticker id="sticker-hero" class="sticker" />
     </div>
   </section>
 </template>
 
 <style scoped>
 .hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 48px 64px;
+  padding-block: clamp(40px, 6vw, 72px) clamp(56px, 7vw, 88px);
+}
+
+.text {
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 48px;
-  padding-block: clamp(48px, 8vw, 80px) clamp(64px, 9vw, 96px);
+  align-items: flex-start;
+  gap: 24px;
 }
 
 .status {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
+  align-items: baseline;
+  gap: 12px;
+  line-height: 1.7;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -55,36 +70,40 @@ import portrait from "@/assets/static/img/jordan.jpg";
 }
 
 .name {
-  font-size: clamp(52px, 9.6vw, 148px);
+  font-size: clamp(48px, 7.2vw, 108px);
 }
 
-.bottom {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 56px 48px;
-  justify-content: space-between;
-  align-items: flex-end;
+.role {
+  margin-top: 8px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(18px, 1.8vw, 24px);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
 }
 
 .intro {
-  max-width: 580px;
-  font-size: clamp(19px, 2vw, 23px);
+  max-width: 560px;
+  font-size: clamp(17px, 1.5vw, 20px);
 }
 
-.intro strong {
-  font-weight: 600;
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
 }
 
 .portrait {
   position: relative;
-  width: 220px;
-  flex: none;
+  width: clamp(240px, 24vw, 320px);
   margin-left: 52px;
 }
 
 .portrait img {
-  width: 220px;
-  height: 260px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5 / 6;
   object-fit: cover;
   border-radius: var(--radius);
   filter: grayscale(1) contrast(1.1);
@@ -96,5 +115,15 @@ import portrait from "@/assets/static/img/jordan.jpg";
   bottom: -36px;
   width: 124px;
   height: 124px;
+}
+
+@media (max-width: 820px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .portrait {
+    justify-self: end;
+  }
 }
 </style>

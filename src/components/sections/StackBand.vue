@@ -18,7 +18,7 @@ import { stack } from "@/data/profile";
   background: var(--ink);
   color: var(--paper);
   overflow: hidden;
-  padding-block: 22px;
+  padding-block: 14px;
 }
 
 .track {
@@ -37,10 +37,10 @@ import { stack } from "@/data/profile";
 }
 
 .item {
-  padding-right: 0.5em;
+  padding-right: 0.6em;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(22px, 2.4vw, 30px);
+  font-size: clamp(16px, 1.5vw, 20px);
   text-transform: uppercase;
   white-space: nowrap;
 }

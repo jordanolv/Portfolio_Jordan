@@ -41,7 +41,7 @@ const pad = (n: number) => String(n).padStart(2, "0");
 }
 
 .title {
-  font-size: clamp(48px, 9vw, 128px);
+  font-size: clamp(44px, 7.2vw, 108px);
 }
 
 .group {

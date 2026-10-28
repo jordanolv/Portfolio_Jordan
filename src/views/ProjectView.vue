@@ -16,7 +16,7 @@ const project = computed(() => findProject(String(route.params.id)));
 
       <header class="head">
         <span class="mono kicker">{{ project.kind }}<template v-if="project.year"> · {{ project.year }}</template></span>
-        <h1 class="display title">{{ project.name }}</h1>
+        <h1 class="display title" :class="{ 'title--long': project.name.length > 10 }">{{ project.name }}</h1>
         <span v-if="project.badge" class="mono badge">{{ project.badge }}</span>
       </header>
 
@@ -91,8 +91,13 @@ const project = computed(() => findProject(String(route.params.id)));
 }
 
 .title {
-  font-size: clamp(44px, 8vw, 112px);
+  font-size: clamp(40px, 6.4vw, 96px);
   overflow-wrap: anywhere;
+}
+
+/* Les noms longs (ex. dylanolivier.fr) doivent tenir sur une ligne */
+.title--long {
+  font-size: clamp(28px, 5.4vw, 76px);
 }
 
 .badge {
