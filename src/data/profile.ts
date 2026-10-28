@@ -3,7 +3,7 @@ export const profile = {
   lastName: "Olivier",
   role: "Développeur Full Stack",
   intro:
-    "Diplômé d'un Mastère Expert en Développement Full Stack après 3 ans d'alternance chez Wisebuilding, je conçois et développe des applications web de bout en bout.",
+    "Diplômé du titre Expert en développement logiciel (Bac+5) après 3 ans d'alternance chez Wisebuilding, je conçois et développe des applications web de bout en bout.",
   status: "Recherche un CDI · ouvert à d'autres opportunités",
   statusShort: "Recherche un CDI",
   location: "Beauvais · Paris & alentours · Remote",
@@ -40,7 +40,7 @@ export const parcours: Step[] = [
     period: "2023 — 2026",
     title: "Analyste / Développeur Full Stack",
     place: "Wisebuilding · alternance",
-    text: "Maintenance de l'application historique, participation à la nouvelle stack et évolution de Smartnance, une GMAO. Mastère Expert en Développement Full Stack validé.",
+    text: "Maintenance de l'application historique, participation à la nouvelle stack et évolution de Smartnance, une GMAO. Titre Expert en développement logiciel (Bac+5) obtenu avec Ynov Campus Lyon.",
   },
   {
     period: "2022 — 2023",

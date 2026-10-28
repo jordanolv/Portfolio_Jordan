@@ -77,18 +77,6 @@ export const projects: Project[] = [
     links: [{ label: "GitHub", href: "https://github.com/jordanolv/7Trip" }],
   },
   {
-    id: "smartnance",
-    name: "Smartnance",
-    kind: "GMAO · Wisebuilding",
-    summary: "Évolution d'une GMAO en alternance.",
-    description:
-      "Évolution de Smartnance, une GMAO (gestion de la maintenance), pendant mon alternance chez Wisebuilding.",
-    stack: ["Symfony", "PHP"],
-    tier: "list",
-    client: "Wisebuilding",
-    year: "2023 — 2026",
-  },
-  {
     id: "dylanolivier",
     name: "dylanolivier.fr",
     kind: "Site vitrine & boutique",
