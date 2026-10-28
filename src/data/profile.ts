@@ -52,7 +52,11 @@ export const parcours: Step[] = [
     period: "2022 — 2023",
     title: "Développeur Web / Web Mobile",
     place: "CCI de Lyon",
-    text: "Formation diplômante.",
+    text: "Formation d'un an au développement web et mobile.",
+    degree: {
+      title: "Développeur Web et Web Mobile",
+      place: "CCI de Lyon · Titre professionnel · Bac+2, RNCP niveau 5",
+    },
   },
   {
     period: "2022",
