@@ -24,8 +24,10 @@ const router = createRouter({
       redirect: "/",
     },
   ],
-  scrollBehavior(to, _from, savedPosition) {
+  scrollBehavior(to, from, savedPosition) {
     if (savedPosition) return savedPosition;
+    // Changement de filtre sur /projects (même hash) : on garde la position.
+    if (to.name === "projects" && from.name === "projects" && to.hash === from.hash) return false;
     if (to.hash) return { el: to.hash, behavior: "smooth" };
     return { top: 0 };
   },
