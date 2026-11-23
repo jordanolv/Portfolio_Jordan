@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{ techs: string[]; modelValue: string | null }>();
+defineProps<{ techs: string[]; modelValue: string | null; unknown?: boolean }>();
 defineEmits<{ (e: "update:modelValue", value: string | null): void }>();
 </script>
 
@@ -8,7 +8,7 @@ defineEmits<{ (e: "update:modelValue", value: string | null): void }>();
     <button
       type="button"
       class="chip mono"
-      :aria-pressed="modelValue === null"
+      :aria-pressed="modelValue === null && !unknown"
       @click="$emit('update:modelValue', null)"
     >
       Tous

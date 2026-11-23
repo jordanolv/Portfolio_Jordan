@@ -60,7 +60,7 @@ const pad = (n: number) => String(n).padStart(2, "0");
   <main>
     <section class="page wrap">
       <h1 class="display title">Tous les<br /><span class="hl">projets</span></h1>
-      <TechFilter :techs="techs" :model-value="selected" @update:model-value="select" />
+      <TechFilter :techs="techs" :model-value="selected" :unknown="rawTech !== null && selected === null" @update:model-value="select" />
       <p v-if="groups.length === 0" class="mono empty" role="status">Aucun projet pour cette technologie.</p>
       <div v-for="group in groups" :key="group.title" class="group">
         <h2 class="mono group-title">{{ group.title }}</h2>

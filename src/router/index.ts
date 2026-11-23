@@ -25,9 +25,9 @@ const router = createRouter({
     },
   ],
   scrollBehavior(to, from, savedPosition) {
-    // Simple changement de query (filtre) sur la même page : on garde la position.
-    if (to.path === from.path && to.hash === from.hash) return false;
     if (savedPosition) return savedPosition;
+    // Changement de filtre sur /projects (même hash) : on garde la position.
+    if (to.name === "projects" && from.name === "projects" && to.hash === from.hash) return false;
     if (to.hash) return { el: to.hash, behavior: "smooth" };
     return { top: 0 };
   },
