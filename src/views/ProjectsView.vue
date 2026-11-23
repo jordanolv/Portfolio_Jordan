@@ -12,22 +12,30 @@ const allGroups = [
   { title: "Archives 2022 — 2023", projects: archivedProjects },
 ];
 
-const techs = [...new Set(allGroups.flatMap((g) => g.projects.flatMap((p) => p.stack)))].sort((a, b) =>
-  a.localeCompare(b, "fr", { sensitivity: "base" }),
-);
+const key = (t: string) => t.trim().toLowerCase();
+
+// Clé insensible à la casse -> libellé canonique (première graphie rencontrée).
+const labels = new Map<string, string>();
+for (const g of allGroups) for (const p of g.projects) for (const t of p.stack) if (!labels.has(key(t))) labels.set(key(t), t);
+
+const techs = [...labels.values()].sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" }));
 
 const route = useRoute();
 const router = useRouter();
 
-const selected = computed<string | null>(() => {
+const rawTech = computed<string | null>(() => {
   const t = route.query.tech;
   const value = Array.isArray(t) ? t[0] : t;
-  return value && techs.includes(value) ? value : null;
+  return value ? value : null;
 });
+// Clé active (null = « Tous »). Une valeur inconnue garde sa clé et ne correspond à aucun projet.
+const activeKey = computed(() => (rawTech.value ? key(rawTech.value) : null));
+// Libellé canonique de la puce active (null si Tous ou valeur inconnue).
+const selected = computed(() => (activeKey.value ? (labels.get(activeKey.value) ?? null) : null));
 
 function select(tech: string | null) {
   const { tech: _omit, ...rest } = route.query;
-  router.replace({ query: tech ? { ...rest, tech } : rest });
+  router.replace({ query: tech ? { ...rest, tech } : rest, hash: route.hash });
 }
 
 // Numérotation continue sur la liste filtrée : pas de trou.
@@ -35,7 +43,8 @@ const groups = computed(() => {
   let offset = 0;
   return allGroups
     .map((g) => {
-      const projects = selected.value ? g.projects.filter((p) => p.stack.includes(selected.value!)) : g.projects;
+      const k = activeKey.value;
+      const projects = k ? g.projects.filter((p) => p.stack.some((t) => key(t) === k)) : g.projects;
       const group = { title: g.title, projects, offset };
       offset += projects.length;
       return group;

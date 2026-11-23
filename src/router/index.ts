@@ -24,7 +24,9 @@ const router = createRouter({
       redirect: "/",
     },
   ],
-  scrollBehavior(to, _from, savedPosition) {
+  scrollBehavior(to, from, savedPosition) {
+    // Simple changement de query (filtre) sur la même page : on garde la position.
+    if (to.path === from.path && to.hash === from.hash) return false;
     if (savedPosition) return savedPosition;
     if (to.hash) return { el: to.hash, behavior: "smooth" };
     return { top: 0 };
